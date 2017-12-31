@@ -1,5 +1,45 @@
 <!doctype html>
 <html lang="en">
+<style>
+
+.splash {
+  height: 35em;
+  padding-top: 9em;
+  margin-bottom: 2em;
+  background-image: url("img/bg.jpg");
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+
+div.circle-avatar{
+/* make it responsive */
+max-width: 20%;
+width:20%;
+height:20%;
+display:block;
+/* div height to be the same as width*/
+padding-top:20%;
+
+/* make it a circle */
+border-radius:50%;
+
+/* Centering on image`s center*/
+background-position-y: center;
+background-position-x: center;
+background-repeat: no-repeat;
+
+/* it makes the clue thing, takes smaller dimension to fill div */
+background-size: cover;
+
+/* it is optional, for making this div centered in parent*/
+margin: 0 auto;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+}
+</style>
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,6 +47,10 @@
 
     <!-- Bootstrap CSS -->
      <link href="css/bootstrap.css" rel="stylesheet">
+     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
 
     <title>Hello, world!</title>
   </head>
@@ -14,9 +58,9 @@
 
 
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
       <div class="container">
-      <a class="navbar-brand" href="#">Jacob Hicks</a>
+      <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,7 +72,7 @@
             <a class="nav-link" href="#about">About Me</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#resume">Resume</a>
+            <a class="nav-link" href="#resume" data-toggle="collapse" data-target="#navbarColor01">Resume</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#experience">Experience</a>
@@ -51,18 +95,32 @@
 
     <h3></h3>
 
+
+    <div class="splash">
+      <div class="container">
+        <div class="circle-avatar" style="background-image:url(img/face.jpg)"></div>
+        <h1>Jacob Hicks</h1>
+
+      </div>
+    </div>
+
+
     <div class="container">
 
-      <div class="jumbotron" id="about">
-        <h1 class="display-3">Hi, I'm Jacob!</h1>
 
-        <div class="row mb-3">
-        <div class="col-4">
-          <img style="height: 200px; width: 100%; display: block;" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22318%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20318%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_158bd1d28ef%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_158bd1d28ef%22%3E%3Crect%20width%3D%22318%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22129.359375%22%20y%3D%2297.35%22%3EImage%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Card image">
-        </div>
-        <div class="col-8">
-          <p class="lead">I'm a Political Science and Computer Science student from St. Petersburg, Florida.</p>
+
+      <div class="jumbotron" id="about">
+        <h1 class="display-3">About Me</h1>
+        <div class="col-5">
           <hr class="my-4">
+        </div>
+        <div class="col-7">
+        </div>
+        <div class="row mb-3">
+
+        <div>
+          <p class="lead">I'm a Political Science and Computer Science student from St. Petersburg, Florida.</p>
+
           <p>Keep reading to find out more about me!</p>
         </div>
         </div>
@@ -74,7 +132,7 @@
       </div>
 
 
-      <div class="card">
+      <div class="card" id="contact">
         <div class="card-body">
           <h4 class="card-title">Card title</h4>
           <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
@@ -85,8 +143,16 @@
       </div>
 
     </div>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <script>
+    //Hamburger menu toggle
+    $(".nav navbar-nav ml-auto w-100 justify-content-end").click(function (event) {
+      // check if window is small enough so dropdown is created
+      var toggle = $(".navbar-toggle").is(":visible");
+      if (toggle) {
+        $(".navbar-collapse").collapse('hide');
+      }
+    });
+    </script>
   </body>
 </html>
