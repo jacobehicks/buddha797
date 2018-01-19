@@ -4,8 +4,8 @@
 
 .splash {
   height: 20%;
-  padding-top: 9em;
-  margin-bottom: 2em;
+  padding-top: 4em;
+  margin-bottom: 4em;
   background-image: url("img/bg.jpg");
   background-size: cover;
   color: #fff;
@@ -57,45 +57,6 @@ bottom: 0;
   <body>
 
 
-
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
-      <div class="container">
-      <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarColor01" data-toggle="collapse" data-target=".collapse">
-        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About Me</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#experience" >Experience</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#education">Education</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"  href="#skills" >Skills</a>
-          </li>
-
-          <li class="nav-item active">
-            <a class="nav-link" href="#contact" >Contact</a>
-          </li>
-
-        </ul>
-
-      </div>
-      </div>
-
-
-    </nav>
-
-    <h3></h3>
-
-
     <div class="splash">
       <div class="container">
         <div class="circle-avatar" style="background-image:url(img/face2.jpg)"></div>
@@ -114,67 +75,33 @@ bottom: 0;
         <p class="lead">Hi, I'm Jacob!  I am a Political and Computer Science student from St. Petersburg, Florida. </p>
         <p class="lead">
             <button type="button" class="btn btn-primary btn-lg" href="/docs/resume.pdf">Download Resume</button>
-          <a class="btn btn-success btn-lg" href="#contact" role="button">Contact Me</a>
+            <a class="btn btn-info btn-lg" href="http://www.linkedin.com/in/hicks-jacob">LinkedIn</a>
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#exampleModal">Contact Me</button>
         </p>
+
+
       </div>
+    </div>
 
-      <div class="card border-primary mb-4">
-        <div class="card-body text-primary">
-          <h4 class="card-title">Experience</h4>
-          <div class="row">
-            <div class="col-4">
-              <h4><strong>Oxford College</strong><br><small class="text-muted">of Emory University</small></h4>
-              <p>August 2016 - Present</p>
-            </div>
-            <div class="col-8">
-              <h5 class="mt-1"><strong>Student Technology Support Staff</strong></h5>
-              <p class="card-text mt-2">Worked to provide technical support and assistance to Oxford College of Emory University students with software and hardware issues</p>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">\
 
-            </div>
-            <div class="col-4">
-              <h4><strong>Fextel Inc.</strong></h4>
-              <p>June 2015 - October 2015</p>
-            </div>
-            <div class="col-8">
-              <h5 class="mt-1"><strong>Intern</strong></h5>
-              <p class="card-text mt-2">Worked as an intern cataloging and fixing surplus electronics inventory for online sale</p>
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <h4 class="card-title">Contact Me</h4>
+                <h6 class="card-subtitle mb-2 text-muted">Get in touch!</h6>
+                <a href="mailto:jacob@jacobhicks.net" class="card-link">Personal Email</a>
+                <a href="mailto:jacob.hicks@emory.edu" class="card-link">University Email</a>
+              </div>
             </div>
           </div>
 
-        </div>
       </div>
-
-      <div class="card border-primary mb-4">
-        <div class="card-body text-primary">
-          <h4 class="card-title">Education</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card border-primary mb-4">
-        <div class="card-body text-primary">
-          <h4 class="card-title">Skills</h4>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-      </div>
-
-      <div class="card mb-5" id="contact">
-        <div class="card-body">
-          <h4 class="card-title">Contact Me</h4>
-          <h6 class="card-subtitle mb-2 text-muted">Get in touch!</h6>
-
-          <a href="mailto:jacob@jacobhicks.net" class="card-link">Personal Email</a>
-          <a href="mailto:jacob.hicks@emory.edu" class="card-link">University Email</a>
-          <a href="http://www.linkedin.com/in/hicks-jacob" class="card-link">LinkedIn</a>
-
-        </div>
-      </div>
-
-    </div>
 
     <blockquote class="blockquote text-center">
-      <h3><a href="#">^</a></h3>
-      <h6 >© 2017 Jacob Hicks</h6>
+
+      <h6 >© 2018 Jacob Hicks</h6>
     </blockquote>
 
     <script>
