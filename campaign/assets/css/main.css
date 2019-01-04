@@ -172,6 +172,7 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+		color: #ffffff;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -1831,7 +1832,7 @@ input, select, textarea {
 		-webkit-transition: border-color 0.2s ease;
 		-ms-transition: border-color 0.2s ease;
 		transition: border-color 0.2s ease;
-		background-color: transparent;
+		background-color: #8d702a;
 		border: solid 1px !important;
 		border-color: rgba(255, 255, 255, 0.15) !important;
 		border-radius: 3em;
@@ -3857,7 +3858,7 @@ input, select, textarea {
 
 	#intro {
 		background-attachment: fixed;
-		background-image: url("images/intro.svg");
+		background-image: url("images/lightblue.png");
 		background-position: top right;
 		background-repeat: no-repeat;
 		background-size: 100% 100%;
@@ -3872,6 +3873,9 @@ input, select, textarea {
 				#intro p br {
 					display: none;
 				}
+				#intro {
+					background-image: url("images/lightbluemid.png");
+				}
 
 			}
 
@@ -3879,6 +3883,9 @@ input, select, textarea {
 
 				#intro p {
 					font-size: 1em;
+				}
+				#intro {
+					background-image: url("images/lightbluesm.png");
 				}
 
 			}
