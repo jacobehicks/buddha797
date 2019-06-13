@@ -162,7 +162,7 @@ section.resume-section .resume-item .resume-date {
 section.resume-sectionb {
   padding-top: 5rem !important;
   padding-bottom: 5rem !important;
-  max-width: 75rem;
+  
   background-image: url('../img/bg.jpg');
   background-position: center;
   background-size: cover;
@@ -226,7 +226,7 @@ section.resume-sectionb .resume-item .resume-date {
 }
 
 a {
-  color: #0c2340;
+  color: #b58500;
 }
 
 a:hover, a:focus, a:active {
