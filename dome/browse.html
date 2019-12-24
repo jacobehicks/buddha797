@@ -19,6 +19,8 @@
 
 
 $(document).ready(function () {
+    $( "#browseview" ).hide();
+    $( "#aboutview" ).hide();
 
 var table = $('#example').DataTable({
     //"processing" : true,
@@ -26,6 +28,7 @@ var table = $('#example').DataTable({
                 "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Sheet1",
                 dataSrc : 'records'
             },
+    "deferRender": true,
     select:"single",
     "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
     "pageLength": -1,
@@ -45,9 +48,39 @@ var table = $('#example').DataTable({
         { "data": "Number" },
         { "data": "Title" },
         { "data": "Sponsor1" },
-        { "data": "Status" }
+        { "data": "Status" },
+        { "data": "Summary",
+            "visible" : false
+        },
+        { "data": "Text",
+            "visible" : false
+        }
     ],
     "order": [[1, 'dsc']]
+});
+
+$( "#homebutton" ).click(function() {
+    $( "#browseview" ).hide();
+    $( "#aboutview" ).hide();
+    $( "#homeview" ).show();
+});
+
+$( "#browsebutton" ).click(function() {
+    $( "#homeview" ).hide();
+    $( "#aboutview" ).hide();
+    $( "#browseview" ).show();
+});
+
+$( "#aboutbutton" ).click(function() {
+    $( "#browseview" ).hide();
+    $( "#homeview" ).hide();
+    $( "#aboutview" ).show();
+});
+
+$( "#bigaboutbutton" ).click(function() {
+    $( "#browseview" ).hide();
+    $( "#homeview" ).hide();
+    $( "#aboutview" ).show();
 });
 
 // Add event listener for opening and closing details
@@ -78,6 +111,8 @@ table.on("user-select", function (e, dt, type, cell, originalEvent) {
     }
 });
 });
+
+
 
 function format(d){
 
@@ -113,8 +148,8 @@ return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
         <a class="navbar-brand" href="index.html">
-                <!-- <img src="logo.jpg" height="80" class="d-inline-block align-center" alt=""> -->
-                Under The Golden Dome
+                 <img src="logo.jpg" height="80" class="d-inline-block align-center" alt=""> 
+                <!--Under The Golden Dome-->
                 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -122,14 +157,14 @@ return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50
       
         <div class="collapse navbar-collapse" id="navbarColor03">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="browse.html">Browse <span class="sr-only">(current)</span></a>
-            </li>
+          <li class="nav-item">
+            <a class="nav-link" id="homebutton" href="#" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03">Home</a>
+           </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Votes</a>
+              <a class="nav-link" id="browsebutton" href="#" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03">Browse</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+            <li class="nav-item" >
+              <a class="nav-link" id="aboutbutton" href="#" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03">About</a>
             </li>
           </ul>
           <form class="form-inline my-2 my-lg-0">
@@ -147,26 +182,56 @@ return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50
         </div>
         </div>
       </nav>
-    
-    <div class="container">
-    <h1>Hello, world!</h1>
 
-    <table id="example" class="display" cellspacing="0" width="100%">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Type</th>
-                    <th>#</th>
-                    <th>Title</th>
-                    <th>Sponsor</th>
-                    <th>Status</th>
-                </tr>
-               </thead>
-        </table>
+   
+    <div class="container" id="homeview">
+        <div class="alert alert-danger mb-4">
+            <strong>Confidential</strong>  This website and its contents are confidential. Access is for members of the House Democratic Caucus only.
+        </div>
+
+        <div class="jumbotron">
+                    <h1 class="display-3">E-Whip Report</h1>
+                    <p class="lead"><b>Georgia House Democratic Caucus</b></p>
+                    <hr class="my-4">
+                    <p>Rep. William Boddie<small class="text-muted">, Minority Caucus Whip</small></p>
+                    <p>Rep. Dar’shun Kendrick<small class="text-muted">, Minority Caucus Chief Deputy Whip</small></p>
+                    <p class="lead" >
+                      <a class="btn btn-primary" id="bigaboutbutton" href="#" role="button" >About This Web App</a>
+                    </p>
+        </div>
 
     </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 
+    <div class="container" id="browseview">
+            <div class="alert alert-danger mb-4">
+                <strong>Confidential</strong>  This website and its contents are confidential. Access is for members of the House Democratic Caucus only.
+            </div>
+
+        <table id="example" class="display mt-5" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Type</th>
+                        <th>#</th>
+                        <th>Title</th>
+                        <th>Sponsor</th>
+                        <th>Status</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+
+        </div>
+
+    <div class="container" id="aboutview">
+        <div class="alert alert-danger mb-4">
+            <strong>Confidential</strong>  This website and its contents are confidential. Access is for members of the House Democratic Caucus only.
+        </div>
+            
+        <p>wow!</p>
+
+    </div>
+    
   </body>
 </html>
