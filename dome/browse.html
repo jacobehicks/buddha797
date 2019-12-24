@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap.min.css" >
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+    <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script language="javascript" >
+
+
+$(document).ready(function () {
+
+var table = $('#example').DataTable({
+    //"processing" : true,
+            "ajax" : {
+                "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Sheet1",
+                dataSrc : 'records'
+            },
+    select:"single",
+    "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+    "pageLength": -1,
+
+    "columns": [
+        {
+            "className": 'details-control',
+            "orderable": false,
+            "data": null,
+            "defaultContent": '',
+            "render": function () {
+                return '<i class="fa fa-plus-square" aria-hidden="true"></i>';
+            },
+            width:"15px"
+        },
+        { "data": "Type" },
+        { "data": "Number" },
+        { "data": "Title" },
+        { "data": "Sponsor1" },
+        { "data": "Status" }
+    ],
+    "order": [[1, 'dsc']]
+});
+
+// Add event listener for opening and closing details
+$('#example tbody').on('click', 'td.details-control', function () {
+    var tr = $(this).closest('tr');
+    var tdi = tr.find("i.fa");
+    var row = table.row(tr);
+
+    if (row.child.isShown()) {
+        // This row is already open - close it
+        row.child.hide();
+        tr.removeClass('shown');
+        tdi.first().removeClass('fa-minus-square');
+        tdi.first().addClass('fa-plus-square');
+    }
+    else {
+        // Open this row
+        row.child(format(row.data())).show();
+        tr.addClass('shown');
+        tdi.first().removeClass('fa-plus-square');
+        tdi.first().addClass('fa-minus-square');
+    }
+});
+
+table.on("user-select", function (e, dt, type, cell, originalEvent) {
+    if ($(cell.node()).hasClass("details-control")) {
+        e.preventDefault();
+    }
+});
+});
+
+function format(d){
+
+// `d` is the original data object for the row
+return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+    '<tr>' +
+        '<td>Full name:</td>' +
+        '<td>' + d.Title + '</td>' +
+    '</tr>' +
+    '<tr>' +
+        '<td>First Reader Summary:</td>' +
+        '<td>' + d.Summary + '</td>' +
+    '</tr>' +
+    '<tr>' +
+        '<td>First Reader Summary:</td>' +
+        '<td>' + d.Summary + '</td>' +
+    '</tr>' +
+    '<tr>' +
+        '<td>First Reader Summary:</td>' +
+        '<td>' + d.Summary + '</td>' +
+    '</tr>' +
+'</table>';  
+}
+
+
+    
+    </script>
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+        <a class="navbar-brand" href="index.html">
+                <!-- <img src="logo.jpg" height="80" class="d-inline-block align-center" alt=""> -->
+                Under The Golden Dome
+                </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarColor03">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="browse.html">Browse <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Votes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <div class="form-group">
+                <select class="custom-select">
+                  <option selected="">H.B.</option>
+                  <option value="1">H.R.</option>
+                  <option value="2">S.B.</option>
+                  <option value="3">S.R.</option>
+                </select>
+              </div>
+            <input class="form-control mr-sm-2" type="text" placeholder="Number">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Go</button>
+          </form>
+        </div>
+        </div>
+      </nav>
+    
+    <div class="container">
+    <h1>Hello, world!</h1>
+
+    <table id="example" class="display" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Type</th>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Sponsor</th>
+                    <th>Status</th>
+                </tr>
+               </thead>
+        </table>
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  </body>
+</html>
