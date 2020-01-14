@@ -25,6 +25,12 @@
 
     }
 
+    function searchtwo() {
+      var value = document.getElementById("searchbartwo").value;
+      window.location.href = "search.html?q="+value;
+
+    }
+
     $("#searchform").submit(function(e) {
     
       var value = document.getElementById("searchbar").value;
@@ -194,9 +200,9 @@
               <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
                 <form class="form-inline mr-auto w-100 navbar-search">
                   <div class="input-group">
-                    <input  type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                    <input id="searchbartwo" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                     <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
+                      <button onclick="searchtwo()" id="searchbuttontwo" class="btn btn-primary" type="button">
                         <i class="fas fa-search fa-sm"></i>
                       </button>
                     </div>
@@ -298,7 +304,7 @@
                           </div>
                           
                         </div>
-                        <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
+                        <a href="meetings.html" class="stretched-link"></a>
   
                       </div>
                     </div>
