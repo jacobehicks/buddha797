@@ -155,14 +155,13 @@ table.dataTable tbody td {
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon">
             <i class="fas fa-home"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Golden Dome Watch</div>
       </a>
 
       <!-- Divider -->
@@ -272,13 +271,20 @@ table.dataTable tbody td {
       <!-- Main Content -->
       <div id="content">
 
+        
+
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadown">
+
+          
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
             <i class="fa fa-bars"></i>
           </button>
+
+          
+
 
           <!-- Topbar Search -->
           <form id="searchform" onSubmit="return false;" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -296,7 +302,9 @@ table.dataTable tbody td {
           <ul class="navbar-nav ml-auto">
 
             <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            
             <li class="nav-item dropdown no-arrow d-sm-none">
+                
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
@@ -352,48 +360,49 @@ table.dataTable tbody td {
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-            <div class="row">
+            <h2 class=" mb-3">Golden Dome Watch</h2>
 
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                  <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">LexisNexis</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">Georgia Code</div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fas fa-book fa-2x text-gray-300"></i>
-                        </div>
-                        
-                      </div>
-                      <a href="http://www.lexisnexis.com/hottopics/gacode" class="stretched-link"></a>
+              <div class="row">
+                  <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-9 col-md-6 mb-4">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
 
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-secondary shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Emory University</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Nexis Uni</div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-gavel fa-2x text-gray-300"></i>
-                          </div>
-                          
+                            <div class="d-sm-flex align-items-center justify-content-between">
+                                <h1 class="h3 mb-0 text-gray-800">Meetings</h1>
+                                <a href="meetings.html" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm"></i>Full View</a>
+                              </div>
+                              <br>
+                            <table id="example" class="display" cellspacing="0" width="100%">
+                              <thead>
+                                  <tr>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                      <th></th>
+                                  </tr>
+                              </thead>
+                          </table>
                         </div>
-                        <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
-  
                       </div>
                     </div>
-                  </div>
 
+                <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-primary shadow h-100 py-2">
+                        <div class="card-body">
+                            <a class="twitter-timeline" data-height="100%" href="https://twitter.com/GaHouseHub?ref_src=twsrc%5Etfw">Tweets by GaHouseHub</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                      </div>
+                    </div>
+              </div>
+
+
+              <div class="row">
+                
 
                 <!-- Earnings (Monthly) Card Example -->
                 <div class="col-xl-3 col-md-6 mb-4">
@@ -417,7 +426,7 @@ table.dataTable tbody td {
   
                   <!-- Earnings (Monthly) Card Example -->
                   <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-secondary shadow h-100 py-2">
+                      <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
                           <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -434,45 +443,47 @@ table.dataTable tbody td {
                         </div>
                       </div>
                     </div>
-              </div>
-
-              <div class="row">
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-9 col-md-6 mb-4">
-                      <div class="card border-left-secondary shadow h-100 py-2">
-                        <div class="card-body">
-
-                            <div class="d-sm-flex align-items-center justify-content-between">
-                                <h1 class="h3 mb-0 text-gray-800">Meetings</h1>
-                                <a href="meetings.html" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm"></i>Full View</a>
-                                
-                              </div>
-                              <br>
-                            <table id="example" class="display" cellspacing="0" width="100%">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                </thead>
-            </table>
-                        </div>
-                      </div>
-                    </div>
 
                 <!-- Earnings (Monthly) Card Example -->
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
+                      <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                          <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">LexisNexis</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Georgia Code</div>
+                          </div>
+                          <div class="col-auto">
+                            <i class="fas fa-book fa-2x text-gray-300"></i>
+                          </div>
+                          
+                        </div>
+                        <a href="http://www.lexisnexis.com/hottopics/gacode" class="stretched-link"></a>
+  
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- Earnings (Monthly) Card Example -->
                   <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-secondary shadow h-100 py-2">
+                      <div class="card border-left-primary shadow h-100 py-2">
                         <div class="card-body">
-                            <a class="twitter-timeline" data-height="100%" href="https://twitter.com/GaHouseHub?ref_src=twsrc%5Etfw">Tweets by GaHouseHub</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Emory University</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">Nexis Uni</div>
+                            </div>
+                            <div class="col-auto">
+                              <i class="fas fa-gavel fa-2x text-gray-300"></i>
+                            </div>
+                            
+                          </div>
+                          <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
+    
                         </div>
                       </div>
                     </div>
+  
               </div>
 
         </div>
