@@ -18,7 +18,17 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <script>
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <!-- <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" /> -->
+  <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script> -->
+  <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/kt-2.5.1/r-2.2.3/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fh-3.1.6/kt-2.5.1/r-2.2.3/datatables.min.js"></script>
+  <script language="javascript" >
+ 
     function search() {
       var value = document.getElementById("searchbar").value;
       window.location.href = "search.html?q="+value;
@@ -38,8 +48,59 @@
     
     });
 
+    $(document).ready(function () {
+
+
+        var table = $('#example').DataTable({
+            //"processing" : true,
+                    "ajax" : {
+                        "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Meetings",
+                        dataSrc : 'records'
+                    },
+            "deferRender": true,
+            responsive: true,
+            select:"single",
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            "pageLength": -1,
+
+            "columns": [
+                { "data": "Title",
+                    "defaultContent": "<i>Not set</i>" 
+                },
+                { "data": "Spacer",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Location",
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Spacer2",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Link",
+                "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Spacer3",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Agenda" ,
+                "defaultContent": "<i>Not set</i>"
+                }
+            ],
+            "order": [[1, 'dsc']]
+        });
+
+      });
+
 
   </script>
+
+
+
+
+
 
 </head>
 
@@ -249,7 +310,7 @@
             <div class="row">
 
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
                   <div class="card border-left-primary shadow h-100 py-2">
                     <div class="card-body">
                       <div class="row no-gutters align-items-center">
@@ -269,7 +330,7 @@
                 </div>
 
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
+                <div class="col-xl-3 col-md-6 mb-4">
                     <div class="card border-left-secondary shadow h-100 py-2">
                       <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -288,27 +349,78 @@
                     </div>
                   </div>
 
+
                 <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-4 col-md-6 mb-4">
-                    <div class="card border-left-secondary shadow h-100 py-2">
+                <div class="col-xl-3 col-md-6 mb-4">
+                    <div class="card border-left-primary shadow h-100 py-2">
                       <div class="card-body">
                         <div class="row no-gutters align-items-center">
                           <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Georgia House</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Meeting Schedule</div>
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">senate.ga.gov</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">Senate Site</div>
                           </div>
                           <div class="col-auto">
-                            <i class="fas fa-gavel fa-2x text-gray-300"></i>
+                            <i class="fas fa-book fa-2x text-gray-300"></i>
                           </div>
                           
                         </div>
-                        <a href="meetings.html" class="stretched-link"></a>
+                        <a href="http://www.lexisnexis.com/hottopics/gacode" class="stretched-link"></a>
   
                       </div>
                     </div>
                   </div>
+  
+                  <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                          <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">house.ga.gov</div>
+                              <div class="h5 mb-0 font-weight-bold text-gray-800">House Site</div>
+                            </div>
+                            <div class="col-auto">
+                              <i class="fas fa-gavel fa-2x text-gray-300"></i>
+                            </div>
+                            
+                          </div>
+                          <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
+    
+                        </div>
+                      </div>
+                    </div>
+              </div>
 
+              <div class="row">
+                  <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-9 col-md-6 mb-4">
+                      <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <table id="example" class="display" cellspacing="0" width="100%">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th></th>
+                        <th>Location</th>
+                        <th></th>
+                        <th>Link</th>
+                        <th></th>
+                        <th>Agenda</th>
+                    </tr>
+                </thead>
+            </table>
+                        </div>
+                      </div>
+                    </div>
 
+                <!-- Earnings (Monthly) Card Example -->
+                  <div class="col-xl-3 col-md-6 mb-4">
+                      <div class="card border-left-secondary shadow h-100 py-2">
+                        <div class="card-body">
+                            <a class="twitter-timeline" data-height="100%" href="https://twitter.com/GaHouseHub?ref_src=twsrc%5Etfw">Tweets by GaHouseHub</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                      </div>
+                    </div>
               </div>
 
         </div>
@@ -358,7 +470,7 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
+  
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
