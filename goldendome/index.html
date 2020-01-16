@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Under the Golden Dome</title>
+  <title>Georgia House Resources</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -182,14 +182,7 @@ table.dataTable tbody td {
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="senatemeetings.html">
-          <i class="fas fa-fw fa-chart-area"></i>
-          <span>Senate Meetings</span></a>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="cameras.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Camera Feeds</span></a>
       </li>  
@@ -204,23 +197,16 @@ table.dataTable tbody td {
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="http://www.house.ga.gov/clerk/en-US/HouseCalendars.aspx">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Status Sheets</span></a>
+          <span>Calendars</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="composite.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>House Composite</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="senatecomposite.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Senate Composite</span></a>
+          <span>House & Senate Composites</span></a>
       </li>
 
       <!-- Divider -->
@@ -228,29 +214,20 @@ table.dataTable tbody td {
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Votes
+        Resources
       </div>
 
       <!-- Nav Item - Charts -->
       <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="links.html">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>House Votes</span></a>
+          <span>Quick Links</span></a>
       </li>
 
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="tables.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>Senate Votes</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider d-none d-md-block">
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+        <!-- <button class="rounded-circle border-0" id="sidebarToggle"></button> -->
       </div>
 
     </ul>
@@ -278,9 +255,9 @@ table.dataTable tbody td {
 
 
           <!-- Topbar Search -->
-          <form id="searchform" onSubmit="return false;" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+          <form id="searchform" onSubmit="search()"  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
             <div class="input-group">
-              <input id="searchbar" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <input id="searchbar" type="text" class="form-control bg-light border-0 small" placeholder="Search Legislation" aria-label="Search" aria-describedby="basic-addon2">
               <div class="input-group-append">
                 <button onclick="search()" id="searchbutton" class="btn btn-primary" type="button">
                   <i class="fas fa-search fa-sm"></i>
@@ -299,48 +276,19 @@ table.dataTable tbody td {
               <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
               </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input id="searchbartwo" type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button onclick="searchtwo()" id="searchbuttontwo" class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-gray-600" href="https://airtable.com/tbl3nkopDq06vHVc0/viwaUaCWDKN0EVEqt?blocks=hide">Airtable</a>
             </li>
 
             <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">About</span>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600">About</span>
                 <i class="fas fa-info-circle fa-fw mr-2 text-gray-500"></i>
                 
               </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
             </li>
 
           </ul>
@@ -487,7 +435,7 @@ table.dataTable tbody td {
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Your Website 2019</span>
+            <span>Copyright &copy; Jacob Hicks 2020</span>
           </div>
         </div>
       </footer>
