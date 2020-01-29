@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Georgia House Resources</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+  <!-- <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" /> -->
+  <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script> -->
+  <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/fc-3.3.0/datatables.min.css"/>
+ 
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fc-3.3.0/datatables.min.js"></script>
+  <script language="javascript" >
+ 
+    function search() {
+      var value = document.getElementById("searchbar").value;
+      window.location.href = "search.html?q="+value;
+
+    }
+
+    function searchtwo() {
+      var value = document.getElementById("searchbartwo").value;
+      window.location.href = "search.html?q="+value;
+
+    }
+
+    $("#searchform").submit(function(e) {
+    
+      var value = document.getElementById("searchbar").value;
+      window.location.href = "search.html?q="+value;
+    
+    });
+
+    
+    $("#searchform").submit(function(e) {
+    
+    var value = document.getElementById("searchbartwo").value;
+    window.location.href = "search.html?q="+value;
+  
+   });
+
+
+    $(document).ready(function () {
+
+
+        var table = $('#example').DataTable({
+          "paging":   false,
+          "ordering": false,
+          "info":     false,
+          "searching":     false,
+          "scrollX": true,
+
+
+            //"processing" : true,
+                    "ajax" : {
+                        "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Meetings",
+                        dataSrc : 'records'
+                    },
+            "deferRender": true,
+            responsive: true,
+            select:"single",
+            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
+            "pageLength": -1,
+
+            "columns": [
+                { 
+                  "defaultContent": "<i>Not set</i>",
+                  "data": "Title",
+                  "render": function(data, type, row, meta){
+                        data = '<strong>' + data + '</strong>';
+                    return data;
+                  }
+                },
+                { "data": "Spacer",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Location",
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { "data": "Spacer2",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                {
+                  "defaultContent": "<i>Not set</i>",
+                  "data": "Link",
+                  "render": function(data, type, row, meta){
+                    if(type === 'display'){
+                      if(data !== ""){ 
+                        data = '<a href="' + data + '">' + "Stream" + '</a>';
+                      } else {
+                        data = "";
+                      }
+                    }
+                    return data;
+                  }
+                },
+                { "data": "Spacer3",
+                    "visible" : false,
+                    "defaultContent": "<i>Not set</i>"
+                },
+                { 
+                  "defaultContent": "<i>Not set</i>",
+                  rowCallback: function( row, data, index ) {
+    if (data['column'] <= 0) {
+        $(row).hide();
+    }
+},
+                  "data": "Agenda",
+                  "render": function(data, type, row, meta){
+                    if(type === 'display'){
+                      if(data !== ""){ 
+                        data = '<a href="' + data + '">' + "Agenda" + '</a>';
+                      } else {
+                        data = "";
+                      }
+                    }
+                    return data;
+                  }
+                }
+            ],
+            "order": [[1, 'dsc']]
+        });
+
+        
+
+      });
+
+
+  </script>
+
+
+
+<style>
+table.dataTable tbody td {
+  vertical-align: top;
+}
+</style>
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <div class="sidebar-brand-icon">
+            <i class="fas fa-home"></i>
+        </div>
+      </a>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Meetings
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="meetings.html">
+          <i class="fas fa-fw fa-gavel"></i>
+          <span>House & Senate Meetings</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="cameras.html">
+          <i class="fas fa-fw fa-camera"></i>
+          <span>Camera Feeds</span></a>
+      </li>  
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Legislation
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="http://www.house.ga.gov/clerk/en-US/HouseCalendars.aspx">
+          <i class="fas fa-fw fa-calendar-alt"></i>
+          <span>Calendars</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="composite.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>House & Senate Composites</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Resources
+      </div>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="people.html">
+          <i class="fas fa-fw fa-users"></i>
+          <span>Committees & People</span></a>
+      </li>
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="links.html">
+          <i class="fas fa-fw fa-link"></i>
+          <span>Quick Links</span></a>
+      </li>
+
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <!-- <button class="rounded-circle border-0" id="sidebarToggle"></button> -->
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        
+
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadown">
+
+          
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+          
+
+
+          <!-- Topbar Search -->
+          <form id="searchform" onsubmit="search(); return false;"  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input id="searchbar" type="text" class="form-control bg-light border-0 small" placeholder="Search Legislation" aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button onclick="search()" id="searchbutton" class="btn btn-primary" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            
+            <li class="nav-item dropdown no-arrow d-sm-none">
+                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-search fa-fw"></i>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                  <form id="searchformtwo" class="form-inline mr-auto w-100 navbar-search" onsubmit="searchtwo(); return false;">
+                    <div class="input-group">
+                      <input id="searchbartwo" type="text" class="form-control bg-light border-0 small" placeholder="Search Legislation" aria-label="Search" aria-describedby="basic-addon2">
+                      <div class="input-group-append">
+                        <button onclick="searchtwo()" id="searchbuttontwo" class="btn btn-primary" type="button">
+                          <i class="fas fa-search fa-sm"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </li>
+
+            <li class="nav-item">
+              <a class="nav-link text-gray-600" href="https://airtable.com/tbl3nkopDq06vHVc0/viwaUaCWDKN0EVEqt?blocks=hide">Airtable</a>
+            </li>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item">
+              <a class="nav-link" href="about.html" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600">About</span>
+                <i class="fas fa-info-circle fa-fw mr-2 text-gray-500"></i>
+                
+              </a>
+            </li>
+
+          </ul>
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+
+        <ul class="nav nav-tabs m-2">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#house">House Meetings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#senate">Senate Meetings</a>
+            </li>
+          </ul>
+          <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade show active" id="house" >
+                <div class="d-sm-flex align-items-center justify-content-between m-2">
+                    
+                    <a href="meetings.html" class="btn btn-sm btn-block btn-primary shadow-sm m-1"><i class="fas fa-sync-alt fa-sm text-white-50"></i>  Refresh</a>
+                    <a href="http://calendar.legis.ga.gov/Calendar/?chamber=house" class="btn btn-sm btn-block btn-primary shadow-sm m-1"><i class="fas fa-link fa-sm text-white-50"></i>  Open in New Tab</a>
+                  </div>
+        
+        
+                <iframe id="iframe" src="http://calendar.legis.ga.gov/Calendar/?chamber=house" style=" top:0; left:0; bottom:0; right:0; width:100%; height:100vh; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+                    Your browser doesn't support iframes
+                </iframe>
+            </div>
+            <div class="tab-pane fade" id="senate">
+                <div class="d-sm-flex align-items-center justify-content-between m-2">
+                    
+                    <a href="meetings.html" class="btn btn-sm btn-block btn-primary shadow-sm m-1"><i class="fas fa-sync-alt fa-sm text-white-50"></i>  Refresh</a>
+                    <a href="http://calendar.legis.ga.gov/Calendar/?chamber=senate" target="_blank" class="btn btn-sm btn-block btn-primary shadow-sm m-1"><i class="fas fa-link fa-sm text-white-50"></i>  Open in New Tab</a>
+                  </div>
+        
+        
+                <iframe id="iframe" src="http://calendar.legis.ga.gov/Calendar/" style=" top:0; left:0; bottom:0; right:0; width:100%; height:100vh; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;">
+                    Your browser doesn't support iframes
+                </iframe>
+                
+                
+            </div>
+          </div>
+        
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Copyright &copy; Jacob Hicks 2020</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+  
+      </div>
+      <!-- End of Content Wrapper -->
+  
+    </div>
+    <!-- End of Page Wrapper -->
+  
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+  
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Bootstrap core JavaScript-->
+    
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
+  
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
+  
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
+  
+  </body>
+  
+  </html>
+  
