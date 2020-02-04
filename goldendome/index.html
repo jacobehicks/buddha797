@@ -94,51 +94,6 @@
                 },
                 { "data": "Location",
                     "defaultContent": "<i>Not set</i>"
-                },
-                { "data": "Spacer2",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                {
-                  "defaultContent": "<i>Not set</i>",
-                  "data": "Link",
-                  "render": function(data, type, row, meta){
-                    if(type === 'display'){
-                      if(data !== ""){
-                        data = '<a href="' + data + '">' + "Stream" + '</a>';
-                      } else {
-                        data = "";
-                      }
-                    }
-                    return data;
-                  }
-                },
-                { "data": "Spacer3",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                { "data": "AgendaLinks",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                {
-                  "defaultContent": "<i>Not set</i>",
-                  rowCallback: function( row, data, index ) {
-    if (data['column'] <= 0) {
-        $(row).hide();
-    }
-},
-                  "data": "Agenda",
-                  "render": function(data, type, row, meta){
-                    if(type === 'display'){
-                      if(data !== ""){
-                        data = '<a href="' + data + '">' + "Agenda" + '</a>';
-                      } else {
-                        data = "";
-                      }
-                    }
-                    return data;
-                  }
                 }
             ],
             "order": [[1, 'dsc']]
@@ -351,11 +306,6 @@ table.dataTable tbody td {
                             <table id="example" class="display" cellspacing="0" width="100%">
                               <thead>
                                   <tr>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
                                       <th></th>
                                       <th></th>
                                       <th></th>
