@@ -70,7 +70,7 @@
 
             //"processing" : true,
                     "ajax" : {
-                        "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Meetings",
+                        "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=1SHsKI2DkXeUbg8gvRFe1wDO8kBFvm_vZt1QKgMJAKSk&sheet=Meetings",
                         dataSrc : 'records'
                     },
             "deferRender": true,
@@ -80,17 +80,16 @@
             "pageLength": -1,
 
             "columns": [
+                { "data": "Time",
+                    "defaultContent": "<i>Not set</i>"
+                },
                 {
                   "defaultContent": "<i>Not set</i>",
-                  "data": "Title",
+                  "data": "Committee",
                   "render": function(data, type, row, meta){
                         data = '<strong>' + data + '</strong>';
                     return data;
                   }
-                },
-                { "data": "Spacer",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
                 },
                 { "data": "Location",
                     "defaultContent": "<i>Not set</i>"
@@ -297,8 +296,8 @@ table.dataTable tbody td {
                             <div class="d-sm-flex align-items-center justify-content-between">
                                 <h1 class="h3 mb-0 text-gray-800">Meetings</h1>
                                 <div>
-                                  <a href="meetings.html" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>All Meetings</a>
-                                  <a href="http://www.house.ga.gov/mediaServices/en-US/VideoBroadcasts.aspx" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>House Site</a>
+                                  <a href="meetings.html" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>Full Meeting Schedule</a>
+                                  <a href="http://www.house.ga.gov/mediaServices/en-US/VideoBroadcasts.aspx" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>Video Broadcasts</a>
                                 </div>
                                 
                               </div>
