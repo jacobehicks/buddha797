@@ -93,7 +93,20 @@
                 },
                 { "data": "Location",
                     "defaultContent": "<i>Not set</i>"
-                }
+                },
+                { "defaultContent": "<i>Not set</i>",
+                  "data": "Link",
+                  "render": function(data, type, row, meta){
+                    if(type === 'display'){
+                      if(data !== "" && data.includes("http")){
+                        data = '<a href="' + data + '">' + "Agenda" + '</a>';
+                      } else {
+                        data = "";
+                      }
+                    }
+                    return data;
+                  }
+                },
             ],
             "order": [[1, 'dsc']]
         });
@@ -305,6 +318,7 @@ table.dataTable tbody td {
                             <table id="example" class="display" cellspacing="0" width="100%">
                               <thead>
                                   <tr>
+                                      <th></th>
                                       <th></th>
                                       <th></th>
                                       <th></th>
