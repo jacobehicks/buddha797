@@ -4,528 +4,399 @@
 <head>
 
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Georgia House Resources</title>
+  <title>Jacob Hicks</title>
 
-  <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet">
 
-  <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
-  <!-- <link href="https://nightly.datatables.net/css/jquery.dataTables.css" rel="stylesheet" type="text/css" /> -->
-  <!-- <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script> -->
-  <script src="https://cdn.datatables.net/select/1.2.1/js/dataTables.select.min.js" type="text/javascript"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/fc-3.3.0/datatables.min.css"/>
-
-<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/fc-3.3.0/datatables.min.js"></script>
-  <script language="javascript" >
-
-    function search() {
-      var value = document.getElementById("searchbar").value;
-      window.location.href = "search.html?q="+value;
-
-    }
-
-    function searchtwo() {
-      var value = document.getElementById("searchbartwo").value;
-      window.location.href = "search.html?q="+value;
-
-    }
-
-    $("#searchform").submit(function(e) {
-
-      var value = document.getElementById("searchbar").value;
-      window.location.href = "search.html?q="+value;
-
-    });
-
-
-    $("#searchform").submit(function(e) {
-
-    var value = document.getElementById("searchbartwo").value;
-    window.location.href = "search.html?q="+value;
-
-   });
-
-
-    $(document).ready(function () {
-
-
-        var table = $('#example').DataTable({
-          "paging":   false,
-          "ordering": false,
-          "info":     false,
-          "searching":     false,
-          "scrollX": true,
-
-
-            //"processing" : true,
-                    "ajax" : {
-                        "url" : "https://script.google.com/macros/s/AKfycbxYDyGnI5jfvWPys5ZxFHw02kwjswfv5FWXaZjZzK8yK6Z7IFd-/exec?id=11OXJaPQ4A01lCstNPAs6jOgAI1ZJHepxcqYdDZfF8Rk&sheet=Meetings",
-                        dataSrc : 'records'
-                    },
-            "deferRender": true,
-            responsive: true,
-            select:"single",
-            "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-            "pageLength": -1,
-
-            "columns": [
-                {
-                  "defaultContent": "<i>Not set</i>",
-                  "data": "Title",
-                  "render": function(data, type, row, meta){
-                        data = '<strong>' + data + '</strong>';
-                    return data;
-                  }
-                },
-                { "data": "Spacer",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                { "data": "Location",
-                    "defaultContent": "<i>Not set</i>"
-                },
-                { "data": "Spacer2",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                {
-                  "defaultContent": "<i>Not set</i>",
-                  "data": "Link",
-                  "render": function(data, type, row, meta){
-                    if(type === 'display'){
-                      if(data !== ""){
-                        data = '<a href="' + data + '">' + "Stream" + '</a>';
-                      } else {
-                        data = "";
-                      }
-                    }
-                    return data;
-                  }
-                },
-                { "data": "Spacer3",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                { "data": "AgendaLinks",
-                    "visible" : false,
-                    "defaultContent": "<i>Not set</i>"
-                },
-                {
-                  "defaultContent": "<i>Not set</i>",
-                  rowCallback: function( row, data, index ) {
-    if (data['column'] <= 0) {
-        $(row).hide();
-    }
-},
-                  "data": "Agenda",
-                  "render": function(data, type, row, meta){
-                    if(type === 'display'){
-                      if(data !== ""){
-                        data = '<a href="' + data + '">' + "Agenda" + '</a>';
-                      } else {
-                        data = "";
-                      }
-                    }
-                    return data;
-                  }
-                }
-            ],
-            "order": [[1, 'dsc']]
-        });
-
-
-
-      });
-
-
-  </script>
-
-
-
-<style>
-table.dataTable tbody td {
-  vertical-align: top;
-}
-</style>
-
+  <!-- Custom styles for this template -->
+  <link href="css/resume.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top" id="sideNav">
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+      <span class="d-block d-lg-none">Jacob Hicks</span>
+      <span class="d-none d-lg-block ml-auto">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2 d-flex " src="img/profile.jpg" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#education">Education</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link js-scroll-trigger" href="#awards">Awards</a>
+        </li>
+        
+      </ul>
+    </div>
+  </nav>
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
+  <div class="container-fluid p-0">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon">
-            <i class="fas fa-home"></i>
+    <section class="resume-sectionb p-3 p-lg-5 d-flex align-items-center" id="about">
+      <div class="w-100">
+        <h1 class="mb-0 d-none d-lg-block">Jacob
+          <span class="text-primary">Hicks</span>
+        </h1>
+
+        <div class="d-flex justify-content-center">
+
+        <div class="mb-3 w-25 d-none d-md-block d-lg-none">
+        <span class="">
+          <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+        </span>
         </div>
-      </a>
 
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Meetings
       </div>
 
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="meetings.html">
-          <i class="fas fa-fw fa-gavel"></i>
-          <span>House & Senate Meetings</span></a>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="cameras.html">
-          <i class="fas fa-fw fa-camera"></i>
-          <span>Camera Feeds</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Legislation
-      </div>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="http://www.house.ga.gov/clerk/en-US/HouseCalendars.aspx">
-          <i class="fas fa-fw fa-calendar-alt"></i>
-          <span>Calendars</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="composite.html">
-          <i class="fas fa-fw fa-table"></i>
-          <span>House & Senate Composites</span></a>
-      </li>
-
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        Resources
-      </div>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="people.html">
-          <i class="fas fa-fw fa-users"></i>
-          <span>Committees & People</span></a>
-      </li>
-
-      <!-- Nav Item - Charts -->
-      <li class="nav-item">
-        <a class="nav-link" href="links.html">
-          <i class="fas fa-fw fa-link"></i>
-          <span>Quick Links</span></a>
-      </li>
-
-
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <!-- <button class="rounded-circle border-0" id="sidebarToggle"></button> -->
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadown">
-
-
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-
-
-
-          <!-- Topbar Search -->
-          <form id="searchform" onsubmit="search(); return false;"  class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input id="searchbar" type="text" class="form-control bg-light border-0 small" placeholder="Search Legislation" aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button onclick="search()" id="searchbutton" class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-
-            <li class="nav-item dropdown no-arrow d-sm-none">
-                <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-search fa-fw"></i>
-                </a>
-                <!-- Dropdown - Messages -->
-                <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
-                  <form id="searchformtwo" onsubmit="searchtwo(); return false;" class="form-inline mr-auto w-100 navbar-search">
-                    <div class="input-group">
-                      <input id="searchbartwo" type="text" class="form-control bg-light border-0 small" placeholder="Search Legislation" aria-label="Search" aria-describedby="basic-addon2">
-                      <div class="input-group-append">
-                        <button onclick="searchtwo()" id="searchbuttontwo" class="btn btn-primary" type="button">
-                          <i class="fas fa-search fa-sm"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </li>
-
-            <li class="nav-item">
-              <a class="nav-link text-gray-600" href="https://airtable.com/tbl3nkopDq06vHVc0/viwaUaCWDKN0EVEqt?blocks=hide">Airtable</a>
-            </li>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item">
-              <a class="nav-link" href="about.html" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600">About</span>
-                <i class="fas fa-info-circle fa-fw mr-2 text-gray-500"></i>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-            <!-- <h2 class=" mb-3">Golden Dome Watch</h2> -->
-
-              <div class="row">
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-9 col-md-6 mb-4">
-                      <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-
-                            <div class="d-sm-flex align-items-center justify-content-between">
-                                <h1 class="h3 mb-0 text-gray-800">Meetings</h1>
-                                <div>
-                                  <a href="meetings.html" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>All Meetings</a>
-                                  <a href="http://www.house.ga.gov/mediaServices/en-US/VideoBroadcasts.aspx" class="d-block d-sm-inline-block btn btn-sm btn-primary shadow-sm mb-2 mt-1"></i>House Site</a>
-                                </div>
-                                
-                              </div>
-                              <br>
-                            <table id="example" class="display" cellspacing="0" width="100%">
-                              <thead>
-                                  <tr>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                      <th></th>
-                                  </tr>
-                              </thead>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                            <a class="twitter-timeline" data-height="22em" href="https://twitter.com/GaHouseHub?ref_src=twsrc%5Etfw">Tweets by GaHouseHub</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                        </div>
-                      </div>
-                    </div>
-              </div>
-
-
-              <div class="row">
-
-
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">house.ga.gov</div>
-                              <div class="h5 mb-0 font-weight-bold text-gray-800">House Site</div>
-                            </div>
-                            <div class="col-auto">
-                              <i class="fas fa-gavel fa-2x text-gray-300"></i>
-                            </div>
-
-                          </div>
-                          <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
-
-                        </div>
-                      </div>
-                    </div>
-
-
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                  <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                      <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                          <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">senate.ga.gov</div>
-                          <div class="h5 mb-0 font-weight-bold text-gray-800">Senate Site</div>
-                        </div>
-                        <div class="col-auto">
-                          <i class="fas fa-book fa-2x text-gray-300"></i>
-                        </div>
-
-                      </div>
-                      <a href="http://www.lexisnexis.com/hottopics/gacode" class="stretched-link"></a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Earnings (Monthly) Card Example -->
-                <div class="col-xl-3 col-md-6 mb-4">
-                    <div class="card border-left-primary shadow h-100 py-2">
-                      <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                          <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">LexisNexis</div>
-                            <div class="h5 mb-0 font-weight-bold text-gray-800">Georgia Code</div>
-                          </div>
-                          <div class="col-auto">
-                            <i class="fas fa-book fa-2x text-gray-300"></i>
-                          </div>
-
-                        </div>
-                        <a href="http://www.lexisnexis.com/hottopics/gacode" class="stretched-link"></a>
-
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Earnings (Monthly) Card Example -->
-                  <div class="col-xl-3 col-md-6 mb-4">
-                      <div class="card border-left-primary shadow h-100 py-2">
-                        <div class="card-body">
-                          <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Emory University</div>
-                              <div class="h5 mb-0 font-weight-bold text-gray-800">Nexis Uni</div>
-                            </div>
-                            <div class="col-auto">
-                              <i class="fas fa-gavel fa-2x text-gray-300"></i>
-                            </div>
-
-                          </div>
-                          <a href="https://proxy.library.emory.edu/login?url=https://www.nexisuni.com/" class="stretched-link"></a>
-
-                        </div>
-                      </div>
-                    </div>
-
-              </div>
+      <div class="d-flex justify-content-center">
+      
+        <div class="mb-3 w-50 d-md-none">
+          <span class="">
+            <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/profile.jpg" alt="">
+          </span>
+          </div>
 
         </div>
-        <!-- /.container-fluid -->
 
+        <div class="subheading mb-3">St. Petersburg, Florida · Atlanta, Georgia · 
+          <a href="tel:7274090097">(727) 953-2699</a>‬
+           ·
+          <a href="mailto:jacob@jacobhicks.net">jacob@jacobhicks.net</a>
+        </div>
+        <p class="lead mb-5">I'm Jacob Hicks, a senior at Emory University, where I study Political Science and Computer Science. I am currently writing an Honors thesis on political polarization and serving as the student body president of Emory College of Arts and Sciences. I also work as an Undergraduate Research Fellow at Emory's Center for Law and Social Science, where I am conducting research on the social media usage of President Trump. I love learning about the intersection of modern technology and public policy, and how data and technology can make the world a better place. Feel free to 
+          <a href="mailto:jacob@jacobhicks.net">get in touch via email</a>
+          or find me on social media!</p>
+        <div class="social-icons">
+          <a href="https://linkedin.com/in/hicks-jacob">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://twitter.com/jacobhicks727">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="https://www.facebook.com/jacob.hicks.1422">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          
+        </div>  
+        <div class="mt-5">
+            <a href="docs/Jacob Hicks Resume.pdf" class="btn btn-light" role="button">Download Resume (PDF)</a>
+        </div>
+        
       </div>
-      <!-- End of Main Content -->
+    </section>
 
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>Copyright &copy; Jacob Hicks 2020</span>
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+      <div class="w-100">
+        <h2 class="mb-5">Experience</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Legislative Intern</h3>
+            <div class="subheading mb-3">Georgia House Democratic Caucus</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">January 2020 - Present</span>
           </div>
         </div>
-      </footer>
-      <!-- End of Footer -->
 
-    </div>
-    <!-- End of Content Wrapper -->
-
-  </div>
-  <!-- End of Page Wrapper -->
-
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
-
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">President</h3>
+            <div class="subheading mb-3">64th College Council</div>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">March 2019 - Present</span>
+          </div>
         </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
+
+                  
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Legislative Intern</h3>
+            <div class="subheading mb-3">Office of Congressman Charlie Crist</div>
+            <p></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">July 2019 - August 2019</span>
+          </div>
         </div>
+
+                  
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Legislative Intern</h3>
+            <div class="subheading mb-3">Office of Congresswoman Kathy Castor</div>
+            <p></p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">May 2019 - June 2019</span>
+          </div>
+        </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">Undergraduate Research Fellow</h3>
+                <div class="subheading mb-3">Center for Law and Social Science</div>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">August 2018 - Present</span>
+              </div>
+            </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+            <div class="resume-content">
+              <h3 class="mb-0">Legislative Intern</h3>
+              <div class="subheading mb-3">Georgia House Democratic Caucus</div>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">January 2019 - March 2019</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">Polling Intern</h3>
+                <div class="subheading mb-3">St. Pete Polls</div>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">June 2018 - October 2018</span>
+              </div>
+            </div>
+<br>
+          <p class="">See my <a href="docs/Jacob Hicks Resume.pdf">full resume</a> for more about my experience.</p>
+          
+
+        <!--
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+            <div class="resume-content">
+              <h3 class="mb-0">Legislative Intern</h3>
+              <div class="subheading mb-3">Office of Congresswoman Kathy Castor</div>
+              <p></p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">May 2019 - Present</span>
+            </div>
+          </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+            <div class="resume-content">
+              <h3 class="mb-0">President</h3>
+              <div class="subheading mb-3">64th College Council</div>
+              <p>• Incoming President of College Council, Emory University’s largest student governance organization, which represents over 5,000 students in the College of Arts and Sciences</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">March 2019 - Present</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">Undergraduate Research Fellow</h3>
+                <div class="subheading mb-3">Center for Law and Social Science</div>
+                <p>• Currently conducting research on the impact of social media usage by politicians</p>
+                <p>• Selected as one of two Political Science/Computer Science students to improve data collection and analysis practices</p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">August 2018 - Present</span>
+              </div>
+            </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+            <div class="resume-content">
+              <h3 class="mb-0">Legislative Intern</h3>
+              <div class="subheading mb-3">Georgia House Democratic Caucus</div>
+              <p>• Attended fast-paced committee meetings, conducted policy research, and prepared briefings</p>
+              <p>• Analyzed dozens of pieces of legislation to allow Georgia House Democrats to make informed voting decisions</p>
+              <p>• Tracked and maintained databases of proposed legislation and policy priorities</p>
+            </div>
+            <div class="resume-date text-md-right">
+              <span class="text-primary">January 2019 - March 2019</span>
+            </div>
+          </div>
+
+          <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+              <div class="resume-content">
+                <h3 class="mb-0">Polling Intern</h3>
+                <div class="subheading mb-3">St. Pete Polls</div>
+                <p>• Conducted both local and state-wide polls for political candidates and news organizations</p>
+                <p>• Actively used news coverage to identify races of interest for potential polls</p>
+                <p>• Managed call center servers and infrastructure</p>
+              </div>
+              <div class="resume-date text-md-right">
+                <span class="text-primary">June 2018 - October 2018</span>
+              </div>
+            </div>
+
+          -->
+                        
       </div>
-    </div>
+
+    </section>
+
+     
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+      <div class="w-100">
+        <h2 class="mb-5">Education</h2>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0">Emory University</h3>
+            <div class="subheading mb-3">Bachelor of Arts - GPA: 3.81</div>
+            <div>Political Science</div>
+            <div>Computer Science (Minor)</div>
+            <br>
+            <div class="">
+                <h4 class="mb-2">Selected Courses</h4>
+                <ul class="fa-ul mb-0">
+                    <li>
+                        <i class="fa-li fas fa-book-open"></i>
+                        Polarization in American Politics</li>
+                        <li>
+                            <i class="fa-li fas fa-book-open"></i>
+                            Civil Liberties</li>
+                            <li>
+                                <i class="fa-li fas fa-book-open"></i>
+                                Research Design Methods</li>
+                    <li>
+                      <i class="fa-li fas fa-book-open"></i>
+                      Political Violence</li>
+                    <li>
+                        <i class="fa-li fas fa-book-open"></i>
+                        Understanding Community</li>
+                    <li>
+                        <i class="fa-li fas fa-book-open"></i>
+                      The New South</li>
+                  </ul>
+
+
+                  
+               </div>
+          </div>
+          
+        </div>
+
+        <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+          <div class="resume-content">
+            <h3 class="mb-0">Canterbury School of Florida</h3>
+            
+            
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary">2012 - 2016</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="skills">
+      <div class="w-100">
+        <h2 class="mb-5">Skills</h2>
+        <ul class="fa-ul mb-0">
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Research</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Public Speaking</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Productivity Software</li>
+            <li>
+              <i class="fa-li fa fa-check"></i>
+              Photography</li>
+          </ul>
+        <div class="subheading mb-3 mt-5">Programming Languages</div>
+        <ul class="fa-ul mb-0">
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            Java</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            C#</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            M68000 Assembly</li>
+          <li>
+            <i class="fa-li fa fa-check"></i>
+            HTML</li>
+        </ul>
+      </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="awards">
+      <div class="w-100">
+        <h2 class="mb-5">Awards &amp; Honors</h2>
+        <ul class="fa-ul mb-0">
+            <li>
+                <i class="fa-li fa fa-trophy text-warning"></i>
+                Omicron Delta Kappa</li>
+                <li>
+                    <i class="fa-li fa fa-trophy text-warning"></i>
+                    Pi Sigma Alpha</li>
+                    <li>
+                        <i class="fa-li fa fa-trophy text-warning"></i>
+                        Alpha Epsilon Upsilon</li>
+                        <li>
+                            <i class="fa-li fa fa-trophy text-warning"></i>
+                            Honor List (All Semesters)</li>
+                            <li>
+                                <i class="fa-li fa fa-trophy text-warning"></i>
+                                Oxford College of Emory University Gold & Blue Group</li>
+                            
+        </ul>
+      </div>
+    </section>
+   
+
   </div>
 
-  <!-- Bootstrap core JavaScript-->
-
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
+  <!-- Plugin JavaScript -->
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
-
-  <!-- Page level plugins -->
-  <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
+  <!-- Custom scripts for this template -->
+  <script src="js/resume.min.js"></script>
 
 </body>
 
